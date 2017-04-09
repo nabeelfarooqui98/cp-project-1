@@ -2,20 +2,15 @@
 
 Window::Window()
     {
-        Create(); //default values are already decided. no need to pass values. when Window object is created, it
-                    //will call Create();
-        m_isDone = false;
+    m_window.create(sf::VideoMode(600,600),"Tic Tac Toe",sf::Style::Default);
+    m_window.setFramerateLimit(30);
+
+    m_isDone = false;
     }
 
 Window::~Window()
 {
     m_window.close();
-}
-
-void Window::Create()
-{
-    m_window.create(sf::VideoMode(600,600),"Tic Tac Toe",sf::Style::Default);
-    m_window.setFramerateLimit(30);
 }
 
 void Window::Update(){

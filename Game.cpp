@@ -2,7 +2,7 @@
 
 Game::Game()
 {
-    test_tex.loadFromFile("Capture.PNG");
+    test_tex.loadFromFile("board.PNG");
     test_sp.setTexture(test_tex);
 }
 

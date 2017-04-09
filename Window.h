@@ -16,7 +16,7 @@ public:
 
 private:
     void Destroy();
-    void Create();
+
     sf::RenderWindow m_window;
     bool m_isDone;
 };
