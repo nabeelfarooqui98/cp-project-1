@@ -405,3 +405,9 @@
 1491725383 source:c:\users\nabeel\desktop\programs\project\repo\cp-project-1\window.cpp
 	"Window.h"
 
+1491725927 source:c:\users\nabeel\desktop\programs\project\repo\cp-project-1\src\cross.cpp
+	"cross.h"
+
+1491725974 c:\users\nabeel\desktop\programs\project\repo\cp-project-1\include\cross.h
+	<SFML/Graphics.hpp>
+

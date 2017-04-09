@@ -1,5 +1,5 @@
 #include "Window.h"
-
+#include "Cross.h"
 Window::Window()
     {
     m_window.create(sf::VideoMode(600,600),"Tic Tac Toe",sf::Style::Default);
@@ -24,6 +24,11 @@ void Window::Update(){
         {
             m_isDone = true;
             m_window.close();
+        }
+        else if(event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left)
+        {
+            Cross cross(sf::Mouse::getPosition(m_window).x,sf::Mouse::getPosition(m_window).y);
+
         }
    }
 }
