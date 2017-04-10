@@ -15,11 +15,18 @@ class Game
 
     private:
         Window m_window;
+        int board[3][3];
+
+
         //all texture objects will be here
-        sf::Sprite test_sp;
-        sf::Texture test_tex;
 
+        //board
+        sf::Sprite sp_board;
+        sf::Texture tex_board;
 
+        //cross
+        sf::Sprite sp_cross_1;
+        sf::Texture tex_cross_1;
 };
 
 #endif // GAME_H

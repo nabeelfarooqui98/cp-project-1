@@ -13,7 +13,7 @@ Window::~Window()
     m_window.close();
 }
 
-void Window::Update(){
+void Window::Update(int board[3][3]){
 
    sf::Event event;
 
@@ -27,7 +27,11 @@ void Window::Update(){
         }
         else if(event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left)
         {
-            Cross cross(sf::Mouse::getPosition(m_window).x,sf::Mouse::getPosition(m_window).y);
+            if(sf::Mouse::getPosition(m_window).x>0 && sf::Mouse::getPosition(m_window).x<200)
+            {
+                board[0][0]=1;
+
+            }
 
         }
    }

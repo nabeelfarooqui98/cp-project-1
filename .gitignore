@@ -28,3 +28,6 @@
 *.out
 *.app
 Tic Tac Toe Book.cbp
+*.layout
+Tic Tac Toe Book.depend
+*.depend
