@@ -4,7 +4,7 @@
 #include "Window.h"
 
 int main(){
-    Game game; // Creating game object.
+    Game game; // Creating our game object.
 
     while(game.GetWindow()->IsDone()==false)
     {
