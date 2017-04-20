@@ -1,7 +1,6 @@
 #include "Window.h"
 #include "Cross.h"
 #include <ctime>
-#include <unistd.h>
 Window::Window()
     {
     m_window.create(sf::VideoMode(600,600),"Tic Tac Toe",sf::Style::Default);
@@ -33,68 +32,58 @@ void Window::Update(int board[3][3]){
             int y = sf::Mouse::getPosition(m_window).y;
             int a = rand()%600;
             int b=  rand()%600;
-            // adding  board check condition to stay safe from overwriting
-            if(x>0 && x<200 && y>0 && y<200 && board[0][0]!=2 && board[0][0]!=1)
+
+            if(x>0 && x<200 && y>0 && y<200)
             {
                 board[0][0]=1;
 
-
             }
-            if(x>200 && x<400 && y>0 && y<200 && board[0][1]!=2 && board[0][1]!=1)
+            if(x>200 && x<400 && y>0 && y<200)
             {
                 board[0][1]=1;
 
-
             }
-            if(x>400 && x<600 && y>0 && y<200 && board[0][2]!=2 && board[0][2]!=1)
+            if(x>400 && x<600 && y>0 && y<200)
             {
                 board[0][2]=1;
 
-
             }
-            if(x>0 && x<200 && y>200 && y<400 && board[1][0]!=2 && board[1][0]!=1)
+            if(x>0 && x<200 && y>200 && y<400)
             {
 
                 board[1][0]=1;
-
             }
-            if(x>200 && x<400 && y>200 && y<400 && board[1][1]!=2 && board[1][1]!=1)
+            if(x>200 && x<400 && y>200 && y<400)
             {
 
                 board[1][1]=1;
-
             }
 
                 // for bot
-            if(a>0 && a<200 && b>0 && b<200 && board[0][0]!=2 && board[0][0]!=1)
+            if(a>0 && a<200 && b>0 && b<200)
             {
                 board[0][0]=2;
-                sf::sleep(sf::milliseconds(180));
 
             }
-            if(a>200 && a<400 && b>0 && b<200 && board[0][1]!=2 && board[0][1]!=1)
+            if(a>200 && a<400 && b>0 && b<200)
             {
                 board[0][1]=2;
-                sf::sleep(sf::milliseconds(180));
 
             }
-            if(a>400 && a<600 && b>0 && b<200 && board[0][2]!=2 && board[0][2]!=1)
+            if(a>400 && a<600 && b>0 && b<200)
             {
                 board[0][2]=2;
-                sf::sleep(sf::milliseconds(180));
 
             }
-            if(a>0 && a<200 && b>200 && b<400 && board[1][0]!=2 && board[1][0]!=1)
+            if(a>0 && a<200 && b>200 && b<400)
             {
 
                 board[1][0]=2;
-                sf::sleep(sf::milliseconds(180));
             }
-            if(a>200 && a<400 && b>200 && b<400 && board[1][1]!=2 && board[1][1]!=1)
+            if(a>200 && a<400 && b>200 && b<400)
             {
 
                 board[1][1]=2;
-                sf::sleep(sf::milliseconds(180));
             }
 
 
@@ -120,4 +109,3 @@ void Window::EndDraw()
 void Window::Draw(sf::Drawable &l_drawable){
     m_window.draw(l_drawable);
 }
-
