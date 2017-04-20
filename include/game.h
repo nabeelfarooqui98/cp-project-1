@@ -27,6 +27,9 @@ class Game
         //cross
         sf::Sprite sp_cross[5];
         sf::Texture tex_cross_1;
+
+        sf::Sprite bsprite[5]; //for bot
+        sf::Texture btex; // for bot
 };
 
 #endif // GAME_H

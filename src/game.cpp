@@ -23,6 +23,13 @@ Game::Game()
         sp_cross[i].setPosition(-200,0);
     }
 
+    btex.loadFromFile("O.png"); //for bot
+    for(int i=0; i<5; i++)
+    {
+        bsprite[i].setTexture(btex);
+        bsprite[i].setPosition(-200,0);
+    }
+
 //    sp_cross_1.setOrigin();
 //    sp_cross_1.setPosition(-200,0); //left of window
 
@@ -42,7 +49,10 @@ void Game::Render()
     {
         m_window.Draw(sp_cross[i]);
     }
-
+    for(int i=0; i<5; i++)
+    {
+        m_window.Draw(bsprite[i]);
+    }
     m_window.EndDraw();
        // std::cout << "POS of CROSS: " << sp_cross_1.getPosition().x << " " << sp_cross_1.getPosition().y << std::endl;
 }
@@ -91,6 +101,46 @@ void Game::Update()
         sp_cross[i].setPosition(0,600);
     i++;
     }
+
+    //for bot
+    int y=0;
+     if(board[0][0]==2)
+    {
+        std::cout << "Entrance of Bot\n";
+        bsprite[y].setPosition(0,0);
+    }
+    if(board[0][1]==2)
+    {
+
+        bsprite[y].setPosition(200,0);
+        y++;
+    }
+    if(board[0][2]==2)
+    {
+        bsprite[y].setPosition(400,0);
+    y++;
+    }
+    if(board[1][0]==2)
+    {
+        bsprite[y].setPosition(0,200);
+    y++;
+    }
+    if(board[1][1]==2)
+    {
+        bsprite[y].setPosition(0,400);
+    y++;
+    }
+    if(board[1][2]==2)
+    {
+        bsprite[y].setPosition(0,600);
+    y++;
+    }
+
+
+    // end of bot
+
+
+
 }
 
 

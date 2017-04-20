@@ -1,10 +1,11 @@
 #include "Window.h"
 #include "Cross.h"
+#include <ctime>
 Window::Window()
     {
     m_window.create(sf::VideoMode(600,600),"Tic Tac Toe",sf::Style::Default);
     m_window.setFramerateLimit(30);
-
+    srand(time(NULL)); //for bot
     m_isDone = false;
     }
 
@@ -29,6 +30,8 @@ void Window::Update(int board[3][3]){
         {
             int x = sf::Mouse::getPosition(m_window).x;
             int y = sf::Mouse::getPosition(m_window).y;
+            int a = rand()%600;
+            int b=  rand()%600;
 
             if(x>0 && x<200 && y>0 && y<200)
             {
@@ -56,6 +59,32 @@ void Window::Update(int board[3][3]){
                 board[1][1]=1;
             }
 
+                // for bot
+            if(a>0 && a<200 && b>0 && b<200)
+            {
+                board[0][0]=2;
+
+            }
+            if(a>200 && a<400 && b>0 && b<200)
+            {
+                board[0][1]=2;
+
+            }
+            if(a>400 && a<600 && b>0 && b<200)
+            {
+                board[0][2]=2;
+
+            }
+            if(a>0 && a<200 && b>200 && b<400)
+            {
+
+                board[1][0]=2;
+            }
+            if(a>200 && a<400 && b>200 && b<400)
+            {
+
+                board[1][1]=2;
+            }
 
 
         }
