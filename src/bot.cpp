@@ -1,8 +1,11 @@
 #include "bot.h"
-
+#include <iostream>
 Bot::Bot()
 {
-    //ctor
+
+    //for NOW
+    type = "EASY";
+
 }
 
 Bot::Bot(int a,int b)
@@ -15,4 +18,23 @@ Bot::Bot(int a,int b)
 Bot::~Bot()
 {
 
+}
+
+void Bot::placePiece(int board[3][3])
+{
+    //it will read the board
+    //then set any one 0 to 2
+
+    if(type=="EASY")
+    {
+        int a = rand()%3;
+        int b = rand()%3;
+
+        std::cout << a << " " << b << std::endl;
+
+    }
+    else
+    {
+
+    }
 }

@@ -8,11 +8,15 @@ class Bot
         Bot();
         ~Bot(); //destructor
         Bot(int a,int b); // parametrized constructor
+        void placePiece(int board[3][3]);
+
     protected:
 
     private:
         sf::Texture btex;
         sf::Sprite bsprite;
+
+        std::string type;
 
 };
 

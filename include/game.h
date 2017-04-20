@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include "Window.h"
+#include "bot.h"
 
 class Game
 {
@@ -30,6 +31,8 @@ class Game
 
         sf::Sprite bsprite[5]; //for bot
         sf::Texture btex; // for bot
+
+        Bot myBot;
 };
 
 #endif // GAME_H

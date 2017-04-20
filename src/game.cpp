@@ -64,10 +64,17 @@ void Game::HandleInput()
 
 void Game::Update()
 {
-    m_window.Update(board);//pass reference to board array
-    // this is for 1 cross
-    // sp_cross_1 k liyay positions k liyay karo then again u have to make a texture sp_cross_2
+    m_window.Update(board);//pass reference to board array to take input from user
+                            //and set the corresponding cell to 1
 
+     myBot.placePiece(board);
+                            //now pass the board arrray to bot object
+                            //to read the already entered USER's piece and
+                            //place bot piece accordingly
+
+
+
+    //these are only to read board array and set position of objects
     int i=0; //for CROSS ONLY
     int y=0; // for O, BOT
 
@@ -138,12 +145,18 @@ void Game::Update()
         sp_cross[i].setPosition(400,400);
         i++;
     }
-    //for bot
+
+    /*
+
+    BOT FROM HERE
+
+    */
 
      if(board[0][0]==2)
     {
 //        std::cout << "Entrance of Bot\n";
         bsprite[y].setPosition(0,0);
+        y++;
     }
     if(board[0][1]==2)
     {
@@ -154,37 +167,37 @@ void Game::Update()
     if(board[0][2]==2)
     {
         bsprite[y].setPosition(400,0);
-    y++;
+        y++;
     }
     if(board[1][0]==2)
     {
         bsprite[y].setPosition(0,200);
-    y++;
+        y++;
     }
     if(board[1][1]==2)
     {
         bsprite[y].setPosition(200,200);
-    y++;
+        y++;
     }
     if(board[1][2]==2)
     {
         bsprite[y].setPosition(400,200);
-    y++;
+        y++;
     }
     if(board[2][0]==2)
     {
         bsprite[y].setPosition(0,600);
-    y++;
+        y++;
     }
     if(board[2][1]==2)
     {
         bsprite[y].setPosition(200,600);
-    y++;
+        y++;
     }
     if(board[2][2]==2)
     {
         bsprite[y].setPosition(400,600);
-    y++;
+        y++;
     }
 
     // end of bot
