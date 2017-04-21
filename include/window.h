@@ -10,7 +10,7 @@ public:
     ~Window();
     void BeginDraw(); // Clear the window.
     void EndDraw(); // Display the changes.
-    void Update(int board[3][3]);
+    bool Update(int board[3][3]);
     bool IsDone();
     void Draw(sf::Drawable& l_drawable);
 

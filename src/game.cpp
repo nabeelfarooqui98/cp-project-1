@@ -64,10 +64,16 @@ void Game::HandleInput()
 
 void Game::Update()
 {
-    m_window.Update(board);//pass reference to board array to take input from user
+     bool botTurn = false; //below function will return 1 (true) if user has placed a piece
+                            //only then we will call myBot.placePiece()
+
+     botTurn = m_window.Update(board);//pass reference to board array to take input from user
                             //and set the corresponding cell to 1
 
-     myBot.placePiece(board);
+    if(botTurn==true)
+    {
+        myBot.placePiece(board);
+    }
                             //now pass the board arrray to bot object
                             //to read the already entered USER's piece and
                             //place bot piece accordingly
@@ -99,110 +105,114 @@ void Game::Update()
 
     */
 
-    if(board[0][0]==1)
-    {
-   //     std::cout << "INSIDE if COND\n";
-        sp_cross[i].setPosition(0,0);
-        i++;
-    }
-    if(board[0][1]==1)
-    {
-        sp_cross[i].setPosition(200,0);
-        i++;
-    }
-    if(board[0][2]==1)
-    {
-        sp_cross[i].setPosition(400,0);
-        i++;
-    }
-    if(board[1][0]==1)
-    {
-        sp_cross[i].setPosition(0,200);
-        i++;
-    }
-    if(board[1][1]==1)
-    {
-        sp_cross[i].setPosition(200,200);
-        i++;
-    }
-    if(board[1][2]==1)
-    {
-        sp_cross[i].setPosition(400,200);
-        i++;
-    }
-    if(board[2][0]==1)
-    {
-        sp_cross[i].setPosition(0,400);
-        i++;
-    }
-    if(board[2][1]==1)
-    {
-        sp_cross[i].setPosition(200,400);
-        i++;
-    }
-    if(board[2][2]==1)
-    {
-        sp_cross[i].setPosition(400,400);
-        i++;
-    }
-
-    /*
-
-    BOT FROM HERE
-
-    */
-
-     if(board[0][0]==2)
-    {
-//        std::cout << "Entrance of Bot\n";
-        bsprite[y].setPosition(0,0);
-        y++;
-    }
-    if(board[0][1]==2)
+    //displaying the board. Making scope for clarity
     {
 
-        bsprite[y].setPosition(200,0);
-        y++;
-    }
-    if(board[0][2]==2)
-    {
-        bsprite[y].setPosition(400,0);
-        y++;
-    }
-    if(board[1][0]==2)
-    {
-        bsprite[y].setPosition(0,200);
-        y++;
-    }
-    if(board[1][1]==2)
-    {
-        bsprite[y].setPosition(200,200);
-        y++;
-    }
-    if(board[1][2]==2)
-    {
-        bsprite[y].setPosition(400,200);
-        y++;
-    }
-    if(board[2][0]==2)
-    {
-        bsprite[y].setPosition(0,600);
-        y++;
-    }
-    if(board[2][1]==2)
-    {
-        bsprite[y].setPosition(200,600);
-        y++;
-    }
-    if(board[2][2]==2)
-    {
-        bsprite[y].setPosition(400,600);
-        y++;
-    }
 
-    // end of bot
+        if(board[0][0]==1)
+        {
+       //     std::cout << "INSIDE if COND\n";
+            sp_cross[i].setPosition(0,0);
+            i++;
+        }
+        if(board[0][1]==1)
+        {
+            sp_cross[i].setPosition(200,0);
+            i++;
+        }
+        if(board[0][2]==1)
+        {
+            sp_cross[i].setPosition(400,0);
+            i++;
+        }
+        if(board[1][0]==1)
+        {
+            sp_cross[i].setPosition(0,200);
+            i++;
+        }
+        if(board[1][1]==1)
+        {
+            sp_cross[i].setPosition(200,200);
+            i++;
+        }
+        if(board[1][2]==1)
+        {
+            sp_cross[i].setPosition(400,200);
+            i++;
+        }
+        if(board[2][0]==1)
+        {
+            sp_cross[i].setPosition(0,400);
+            i++;
+        }
+        if(board[2][1]==1)
+        {
+            sp_cross[i].setPosition(200,400);
+            i++;
+        }
+        if(board[2][2]==1)
+        {
+            sp_cross[i].setPosition(400,400);
+            i++;
+        }
 
+        /*
 
+        BOT FROM HERE
+
+        */
+
+         if(board[0][0]==2)
+        {
+    //        std::cout << "Entrance of Bot\n";
+            bsprite[y].setPosition(0,0);
+            y++;
+        }
+        if(board[0][1]==2)
+        {
+
+            bsprite[y].setPosition(200,0);
+            y++;
+        }
+        if(board[0][2]==2)
+        {
+            bsprite[y].setPosition(400,0);
+            y++;
+        }
+        if(board[1][0]==2)
+        {
+            bsprite[y].setPosition(0,200);
+            y++;
+        }
+        if(board[1][1]==2)
+        {
+            bsprite[y].setPosition(200,200);
+            y++;
+        }
+        if(board[1][2]==2)
+        {
+            bsprite[y].setPosition(400,200);
+            y++;
+        }
+        if(board[2][0]==2)
+        {
+            bsprite[y].setPosition(0,400);
+            y++;
+        }
+        if(board[2][1]==2)
+        {
+            bsprite[y].setPosition(200,400);
+            y++;
+        }
+        if(board[2][2]==2)
+        {
+            bsprite[y].setPosition(400,400);
+            y++;
+        }
+
+        // end of bot
+
+    }
 
 }
 

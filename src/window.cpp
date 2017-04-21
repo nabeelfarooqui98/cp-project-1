@@ -14,7 +14,7 @@ Window::~Window()
     m_window.close();
 }
 
-void Window::Update(int board[3][3]){
+bool Window::Update(int board[3][3]){
 
    sf::Event event;
 
@@ -30,55 +30,59 @@ void Window::Update(int board[3][3]){
         {
             int x = sf::Mouse::getPosition(m_window).x;
             int y = sf::Mouse::getPosition(m_window).y;
-            int a = rand()%600;
-            int b=  rand()%600;
+
+            bool botTurn = false;
 
             if(x>0 && x<200 && y>0 && y<200)
             {
                 board[0][0]=1;
-
+                botTurn = true;
             }
             if(x>200 && x<400 && y>0 && y<200)
             {
                 board[0][1]=1;
-
+                botTurn = true;
             }
             if(x>400 && x<600 && y>0 && y<200)
             {
                 board[0][2]=1;
-
+                botTurn = true;
             }
             if(x>0 && x<200 && y>200 && y<400)
             {
-
                 board[1][0]=1;
+                botTurn = true;
             }
             if(x>200 && x<400 && y>200 && y<400)
             {
-
                 board[1][1]=1;
+                botTurn = true;
             }
             if(x>400 && x<600 && y>200 && y<400)
             {
                 board[1][2]=1;
-
+                botTurn = true;
             }
             if(x>0 && x<200 && y>400 && y<600)
             {
-
                 board[2][0]=1;
+                botTurn = true;
             }
             if(x>200 && x<400 && y>400 && y<600)
             {
-
                 board[2][1]=1;
+                botTurn = true;
             }
             if(x>400 && x<600 && y>400 && y<600)
             {
-
                 board[2][2]=1;
+                botTurn = true;
             }
+
+
+            return botTurn;
                 // for bot
+/*
             if(a>0 && a<200 && b>0 && b<200)
             {
                 board[0][0]=2;
@@ -104,7 +108,7 @@ void Window::Update(int board[3][3]){
 
                 board[1][1]=2;
             }
-
+*/
 
         }
    }
