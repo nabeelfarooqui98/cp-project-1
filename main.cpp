@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
 
 #include "Game.h"
-#include "Window.h"
 
 int main(){
     Game game; // Creating our game object.

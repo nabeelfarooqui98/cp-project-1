@@ -69,6 +69,7 @@ void Game::Update()
 
      botTurn = m_window.Update(board);//pass reference to board array to take input from user
                             //and set the corresponding cell to 1
+                            //it will return TRUE for botTurn if user places a piece (clicks mouse)
 
     if(botTurn==true)
     {
@@ -79,6 +80,8 @@ void Game::Update()
                             //place bot piece accordingly
 
 
+
+    /* BELOW IS DISPLAY ONLY */
 
     //these are only to read board array and set position of objects
     int i=0; //for CROSS ONLY

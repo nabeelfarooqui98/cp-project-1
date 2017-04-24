@@ -47,7 +47,7 @@ void Bot::placePiece(int board[3][3])
         }
 
     }
-    else
+    else //for hard difficulty
     {
 
     }
