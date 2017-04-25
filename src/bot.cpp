@@ -19,9 +19,16 @@ Bot::~Bot()
 {
 
 }
+void Bot::Delay(double s)
+{
+    int sec = int(s*1000);
+    Sleep(sec);
+}
+
 
 void Bot::placePiece(int board[3][3])
 {
+    Delay(1);
     //it will read the board
     //then set any one 0 to 2
     bool placed = false;
