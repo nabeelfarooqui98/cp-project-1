@@ -12,10 +12,9 @@ public:
     void EndDraw(); // Display the changes.
     bool Update(int board[3][3]);
     bool IsDone();
-
     void Draw(sf::Drawable& l_drawable);
 
-protected:
+private:
     void Destroy();
 
     sf::RenderWindow m_window;
