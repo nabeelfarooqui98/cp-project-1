@@ -32,15 +32,15 @@ void Bot::placePiece(int board[3][3])
     //it will read the board
     //then set any one 0 to 2
     bool placed = false;
-
+    bool isempty=true;
     if(type=="EASY")
     {
 
-        while(placed==false) //will keep generating random array positions until if finds one that is empty.
+        while(placed==false&& isempty) //will keep generating random array positions until if finds one that is empty.
         {
             int a = rand()%3;
             int b = rand()%3;
-
+            isempty=false;
             std::cout << a << " " << b << std::endl;
 
             if(board[a][b]==0)

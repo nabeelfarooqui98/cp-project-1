@@ -224,5 +224,6 @@ Window* Game::GetWindow()
 {
     //Window *x;
     //x = &m_window;
+    std::cout << "I  am being called\n";
     return &m_window;
 }

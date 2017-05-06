@@ -32,7 +32,7 @@ class Game
         sf::Sprite bsprite[5]; //for bot
         sf::Texture btex; // for bot
 
-        Bot myBot;
+        Bot myBot; // Composition but galat jaga par
 };
 
 #endif // GAME_H
