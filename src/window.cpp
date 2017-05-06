@@ -147,7 +147,7 @@ bool Window::Update(int board[3][3]){
                 m_isDone=true;
 
             }
-            if(board[0][0]==1&& board[1][0]==1 && board[2][0]==0)
+            if(board[0][0]==1&& board[1][0]==1 && board[2][0]==1)
             {
                 m_isDone=true;
 
