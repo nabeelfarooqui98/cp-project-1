@@ -64,36 +64,127 @@ void Game::HandleInput()
 
 void Game::Update()
 {
-     bool botTurn = false; //below function will return 1 (true) if user has placed a piece
-                            //only then we will call myBot.placePiece()
+     bool botTurn = false;
+     botTurn = m_window.Update(board);
+     /* pass reference to board array to take input from user
+        it will return TRUE for botTurn if user places a piece (clicks mouse)*/
 
-     botTurn = m_window.Update(board);//pass reference to board array to take input from user
-                            //and set the corresponding cell to 1
-                            //it will return TRUE for botTurn if user places a piece (clicks mouse)
+     //call func to check if user won
+     bool didUserWin_var = didUserWin();
+     if (didUserWin_var == true)
+     {
+         std::cout << "User won" << std::endl;
+     }
 
     if(botTurn==true)
     {
-        myBot.placePiece(board);
+        myBot.placePiece(board); //checks the board and BOT places piece accordingly
+
+         bool didBotWin_var = didBotWin();
+         if (didBotWin_var == true)
+         {
+             std::cout << "Bot won" << std::endl;
+         }
+
     }
-                            //now pass the board arrray to bot object
-                            //to read the already entered USER's piece and
-                            //place bot piece accordingly
 
+        displayBoard();
 
+}
 
-    /* BELOW IS DISPLAY ONLY */
+bool Game::didUserWin()
+{
+            if(board[0][0]==1&& board[1][1]==1 && board[2][2]==1)
+            {
+                return true;
+            }
+            else if(board[0][0]==1 && board[0][1]==1 && board[0][2]==1)
+            {
+                return true;
+            }
+            else if(board[0][0]==1&& board[1][0]==1 && board[2][0]==1)
+            {
+                return true;
+            }
+            else if(board[1][0]==1 && board[1][1]==1&& board[1][2]==1)
+            {
+                return true;
+            }
+            else if(board[2][0]==1 && board[2][1]==1 && board[2][2]==1)
+            {
+                return true;
+            }
+            else if(board[0][2]==1 && board[1][1]==1 && board[2][0]==1)
+            {
+                return true;
+            }
+            else if(board[0][1]==1 && board[1][1]==1 && board[2][1]==1)
+            {
+                return true;
+            }
+            else if(board[0][2]==1 && board[1][2]==1 && board[2][2]==1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
+}
+
+bool Game::didBotWin()
+{
+            if(board[0][0]==2&& board[1][1]==2 && board[2][2]==2)
+            {
+                return true;
+            }
+            else if(board[0][0]==2 && board[0][1]==2 && board[0][2]==2)
+            {
+                return true;
+            }
+            else if(board[0][0]==2&& board[1][0]==2 && board[2][0]==2)
+            {
+                return true;
+            }
+            else if(board[1][0]==2 && board[1][1]==2&& board[1][2]==2)
+            {
+                return true;
+            }
+            else if(board[2][0]==2 && board[2][1]==2 && board[2][2]==2)
+            {
+                return true;
+            }
+            else if(board[0][2]==2 && board[1][1]==2 && board[2][0]==2)
+            {
+                return true;
+            }
+            else if(board[0][1]==2 && board[1][1]==2 && board[2][1]==2)
+            {
+                return true;
+            }
+            else if(board[0][2]==2 && board[1][2]==2 && board[2][2]==2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+}
+
+void Game::displayBoard()
+{
     //these are only to read board array and set position of objects
     int i=0; //for CROSS ONLY
-    int y=0; // for O, BOT
+    int j=0; // for O, BOT
 
     /*
 
-    Every time UPDATE is called from the main()
     it will first remove all pieces from the board (setposition away)
     then will place one at a time (will increment i after placing one piece)
     so that if any other IF condition is satisfied it will place next
-    PIECE from the array
+    PIECE from the array (array mein limited sprites hain (5))
 
     */
     for(int i=0;i<5;i++)
@@ -102,19 +193,10 @@ void Game::Update()
         bsprite[i].setPosition(-200,0);
     }
 
-    /*
-
-    END OF BLOCK
-
-    */
-
-    //displaying the board. Making scope for clarity
-    {
 
 
         if(board[0][0]==1)
         {
-       //     std::cout << "INSIDE if COND\n";
             sp_cross[i].setPosition(0,0);
             i++;
         }
@@ -167,58 +249,52 @@ void Game::Update()
 
          if(board[0][0]==2)
         {
-    //        std::cout << "Entrance of Bot\n";
-            bsprite[y].setPosition(0,0);
-            y++;
+            bsprite[j].setPosition(0,0);
+            j++;
         }
         if(board[0][1]==2)
         {
 
-            bsprite[y].setPosition(200,0);
-            y++;
+            bsprite[j].setPosition(200,0);
+            j++;
         }
         if(board[0][2]==2)
         {
-            bsprite[y].setPosition(400,0);
-            y++;
+            bsprite[j].setPosition(400,0);
+            j++;
         }
         if(board[1][0]==2)
         {
-            bsprite[y].setPosition(0,200);
-            y++;
+            bsprite[j].setPosition(0,200);
+            j++;
         }
         if(board[1][1]==2)
         {
-            bsprite[y].setPosition(200,200);
-            y++;
+            bsprite[j].setPosition(200,200);
+            j++;
         }
         if(board[1][2]==2)
         {
-            bsprite[y].setPosition(400,200);
-            y++;
+            bsprite[j].setPosition(400,200);
+            j++;
         }
         if(board[2][0]==2)
         {
-            bsprite[y].setPosition(0,400);
-            y++;
+            bsprite[j].setPosition(0,400);
+            j++;
         }
         if(board[2][1]==2)
         {
-            bsprite[y].setPosition(200,400);
-            y++;
+            bsprite[j].setPosition(200,400);
+            j++;
         }
         if(board[2][2]==2)
         {
-            bsprite[y].setPosition(400,400);
-            y++;
+            bsprite[j].setPosition(400,400);
+            j++;
         }
 
-        // end of bot
-
-    }
-
 }
-
 
 Window* Game::GetWindow()
 {

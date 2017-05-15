@@ -13,6 +13,9 @@ class Game
         void Update();
         void Render();
         Window* GetWindow();
+        bool didUserWin();
+        bool didBotWin();
+        void displayBoard();
 
     private:
         Window m_window; //composition
@@ -29,10 +32,11 @@ class Game
         sf::Sprite sp_cross[5];
         sf::Texture tex_cross_1;
 
-        sf::Sprite bsprite[5]; //for bot
-        sf::Texture btex; // for bot
+        //Circle
+        sf::Sprite bsprite[5];
+        sf::Texture btex;
 
-        Bot myBot; // Composition but galat jaga par
+        Bot myBot; // Composition but galat jaga par (?)
 };
 
 #endif // GAME_H

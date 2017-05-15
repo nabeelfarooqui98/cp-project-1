@@ -38,8 +38,7 @@ bool Window::Update(int board[3][3]){
 
 
             // winning condition for bot
-
-            // Winning Conditions for player
+/*
             if(board[0][0]==2&& board[1][1]==2 && board[2][2]==2)
             {
 
@@ -80,7 +79,7 @@ bool Window::Update(int board[3][3]){
                 m_isDone=true;
 
             }
-
+*/
             // end of checking
             if(x>0 && x<200 && y>0 && y<200 && board[0][0]==0)
             {
@@ -136,8 +135,12 @@ bool Window::Update(int board[3][3]){
                 count++;
                 botTurn = true;
             }
+
+            return botTurn;
+
+
             // Winning Conditions for player
-            if(board[0][0]==1&& board[1][1]==1 && board[2][2]==1)
+/*            if(board[0][0]==1&& board[1][1]==1 && board[2][2]==1)
             {
 
                 m_isDone=true;
@@ -177,10 +180,9 @@ bool Window::Update(int board[3][3]){
                 m_isDone=true;
 
             }
-
+*/
             // same condition for bot
 
-            return botTurn;
                 // for bot
 /*
             if(a>0 && a<200 && b>0 && b<200)
