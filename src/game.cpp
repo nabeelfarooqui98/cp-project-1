@@ -40,6 +40,24 @@ Game::~Game()
     //dtor
 }
 
+void Game::displayMessage(int x)
+{
+    m_window.BeginDraw();
+
+    sf::Texture t;
+    t.loadFromFile("message1.png");
+    sf::Sprite s;
+    s.setTexture(t);
+
+    m_window.Draw(s);
+
+    m_window.EndDraw();
+
+    sf::sleep(sf::seconds(5));
+
+    m_window.done();
+}
+
 void Game::Render()
 {
     m_window.BeginDraw();
@@ -62,7 +80,7 @@ void Game::HandleInput()
 
 }
 
-void Game::Update()
+int Game::Update()
 {
      bool botTurn = false;
      botTurn = m_window.Update(board);
@@ -74,6 +92,7 @@ void Game::Update()
      if (didUserWin_var == true)
      {
          std::cout << "User won" << std::endl;
+         return 1;
      }
 
     if(botTurn==true)
@@ -84,12 +103,13 @@ void Game::Update()
          if (didBotWin_var == true)
          {
              std::cout << "Bot won" << std::endl;
+            return 2;
          }
 
     }
 
         displayBoard();
-
+        return 0;
 }
 
 bool Game::didUserWin()

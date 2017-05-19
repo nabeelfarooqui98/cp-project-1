@@ -232,6 +232,11 @@ void Window::BeginDraw()
     m_window.clear(sf::Color::Black);
 }
 
+void Window::done()
+{
+    m_isDone = true;
+}
+
 void Window::EndDraw()
 {
     m_window.display();

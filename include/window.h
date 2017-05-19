@@ -13,6 +13,7 @@ public:
     bool Update(int board[3][3]);
     bool IsDone();
     void Draw(sf::Drawable& l_drawable);
+    void done();
 
 private:
     void Destroy();
