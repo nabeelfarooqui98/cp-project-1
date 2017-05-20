@@ -2,11 +2,15 @@
 
 #include "Game.h"
 #include "Window.h"
+#include <SFML/Audio.hpp>
 
 int main(){
     Game game; // Creating our game object.
     int gameState;
-
+    sf::Music music;
+    if (!music.openFromFile("music.ogg"))
+    std::cout<<"File Not Found"; // error
+    music.play();
     while(game.GetWindow()->IsDone()==false)
     {
         // Game loop.
