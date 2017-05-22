@@ -10,10 +10,11 @@ int main(){
     sf::Music music;
     if (!music.openFromFile("music.ogg"))
     std::cout<<"File Not Found"; // error
-    music.play();
+
     while(game.GetWindow()->IsDone()==false)
     {
         // Game loop.
+
         game.HandleInput();
         gameState = game.Update(); //will return -1 for draw, 1 for user win, 2 for bot win. 0 for continue
         game.Render();
@@ -22,6 +23,7 @@ int main(){
         {
             game.displayMessage(gameState); //send which message to display. this func will also set isDone to true
         }
+        music.play();
     }
 
 
