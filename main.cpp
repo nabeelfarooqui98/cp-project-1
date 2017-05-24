@@ -70,7 +70,6 @@ int main(){
         {
             // Game loop.
 
-            game.HandleInput();
             gameState = game.Update(); //will return -1 for draw, 1 for user win, 2 for bot win. 0 for continue
             game.Render();
 

@@ -45,7 +45,8 @@ void Game::displayMessage(int x)
     m_window.BeginDraw();
 
     sf::Texture t;
-    t.loadFromFile("message1.png");
+    x==1?t.loadFromFile("message1.png"):t.loadFromFile("message2.png");
+
     sf::Sprite s;
     s.setTexture(t);
 
