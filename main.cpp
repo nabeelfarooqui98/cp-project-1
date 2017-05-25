@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
-
+#include <iostream>
+#include <stdexcept>
 #include "Game.h"
 #include "Window.h"
 #include <SFML/Audio.hpp>
@@ -39,21 +40,35 @@ int main(){
                 window.close();
             }
 
+
             if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left)
                 {
                     int x = sf::Mouse::getPosition(window).x;
                     int y = sf::Mouse::getPosition(window).y;
+                    try{
+
                     if((x>0 && y>100) && (x<600 && y<300) )
                     {
                         startgame=true;
                         window.close();
+                        //throw(logical_error);
                     }
                     if((x>0 && y>300) && (x<600 && y<450) )
                     {
                         endgame=true;
                         window.close();
                     }
+                        throw("Invalid Selection Made");
+                    }catch(const char *x) // If the user clicks anywhere on the screen else than start and exit button this exception will be handled
+                    {                       // and a message will be printed in console telling the player to either start or close the game.
+                        if(startgame==false && endgame==false)
+                        {
+
+                        std::cout << x << std::endl;
+                        }
+                    }
                 }
+
         }
 
         window.clear();

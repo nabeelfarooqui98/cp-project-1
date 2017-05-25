@@ -3,8 +3,7 @@
 Bot::Bot()
 {
 
-    //for NOW
-//    type = "HARD";
+
 
 }
 
