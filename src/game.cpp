@@ -47,7 +47,7 @@ Game::Game(int diff)
 
 Game::~Game()
 {
-    //dtor
+    delete myBot;
 }
 
 void Game::displayMessage(int x)
