@@ -1,9 +1,19 @@
 #include "Game.h"
 #include <iostream>
-
-Game::Game()
+#include <BotEasy.h>
+#include <BotHard.h>
+Game::Game(int diff)
 {
     //    initialize array to zero
+    if(diff==0)
+    {
+        myBot = new BotEasy(); // Upcasting
+
+    }
+    else{
+        myBot = new BotHard(); // Upcasting
+    }
+
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
             board[i][j]=0;
@@ -97,7 +107,7 @@ int Game::Update()
 
     if(botTurn==true)
     {
-        myBot.placePiece(board); //checks the board and BOT places piece accordingly
+        myBot->placePiece(board); //checks the board and BOT places piece accordingly
 
          bool didBotWin_var = didBotWin();
          if (didBotWin_var == true)

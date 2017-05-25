@@ -10,6 +10,7 @@ int main(){
     bool check;
     bool startgame=false;
     bool endgame=false;
+    int diff;
 
     if (!music.openFromFile("music.ogg"))
     std::cout<<"File Not Found"; // error
@@ -60,10 +61,59 @@ int main(){
         window.display();
     }
 
+
+    if(startgame==true && endgame==false)
+    {
+        sf::Sprite sp_diff;
+        sf::Texture tex_diff;
+        tex_diff.loadFromFile("diff.png");
+        sp_diff.setTexture(tex_diff);
+        sp_diff.setPosition(0,0);
+
+        sf::RenderWindow window2(sf::VideoMode(600, 600), "Difficulty Select");
+
+
+        while (window2.isOpen() && startgame==true && endgame==false)
+        {
+            sf::Event event;
+
+            while (window2.pollEvent(event))
+            {
+                if(event.type == sf::Event::Closed)
+                {
+                    endgame = true;
+                    window2.close();
+                }
+
+                if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left)
+                    {
+                        int x = sf::Mouse::getPosition(window2).x;
+                        int y = sf::Mouse::getPosition(window2).y;
+                        std::cout << x << " -- " << y << std::endl;
+                        if((x>0 && y>0) && (x<600 && y<300) )
+                        {
+                            diff=0;
+                            window2.close();
+                        }
+                        if((x>0 && y>300) && (x<600 && y<600) )
+                        {
+                            diff=1;
+                            window2.close();
+                        }
+                    }
+            }
+
+            window2.clear();
+            window2.draw(sp_diff);
+            window2.display();
+        }
+    }
+
+
     //comes afterward
     if(startgame==true && endgame==false)
     {
-        Game game; // Creating our game object.
+        Game game(diff); // Creating our game object. // difficulty passing
 
 
         while(game.GetWindow()->IsDone()==false)

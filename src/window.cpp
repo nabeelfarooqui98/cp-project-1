@@ -1,15 +1,16 @@
 #include "Window.h"
-#include "Cross.h"
 #include "bot.h"
 #include <ctime>
+
 int count=0;
+
 Window::Window()
-    {
+{
     m_window.create(sf::VideoMode(600,600),"Tic Tac Toe",sf::Style::Default);
     m_window.setFramerateLimit(30);
     srand(time(NULL)); //for bot
     m_isDone = false;
-    }
+}
 
 Window::~Window()
 {
@@ -220,7 +221,6 @@ bool Window::IsDone()
 {
     if(count>=5)
     {
-
         m_isDone=true;
     }
 

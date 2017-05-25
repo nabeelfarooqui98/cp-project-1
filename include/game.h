@@ -7,7 +7,7 @@
 class Game
 {
     public:
-        Game();
+        Game(int diff);
         ~Game();
         int Update();
         void Render();
@@ -37,7 +37,7 @@ class Game
         sf::Sprite bsprite[5];
         sf::Texture btex;
 
-        Bot myBot; // Composition but galat jaga par (?)
+        Bot *myBot; // Composition but galat jaga par (?)
 };
 
 #endif // GAME_H

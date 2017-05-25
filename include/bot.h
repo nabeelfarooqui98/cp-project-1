@@ -2,6 +2,7 @@
 #define BOT_H
 #include <SFML/Graphics.hpp> //you must include this otherwise u can't create any sfml private variable
 #include <windows.h>
+#include <cstring>
 
 class Bot
 {
@@ -9,7 +10,7 @@ class Bot
         Bot();
         ~Bot(); //destructor
         Bot(int a,int b); // parametrized constructor
-        void placePiece(int board[3][3]);
+       virtual void placePiece(int board[3][3])=0; //pure virtual function
         void Delay(double x);
 
     protected:
@@ -19,7 +20,7 @@ class Bot
         sf::Sprite bsprite;
 
 
-        std::string type;
+//        std::string type;
 
 };
 
