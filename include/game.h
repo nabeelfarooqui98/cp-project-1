@@ -9,7 +9,6 @@ class Game
     public:
         Game();
         ~Game();
-        void HandleInput();
         int Update();
         void Render();
         Window* GetWindow();

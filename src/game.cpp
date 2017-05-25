@@ -45,7 +45,10 @@ void Game::displayMessage(int x)
     m_window.BeginDraw();
 
     sf::Texture t;
-    x==1?t.loadFromFile("message1.png"):t.loadFromFile("message2.png");
+//    x==1?t.loadFromFile("message1.png"):t.loadFromFile("message2.png");
+    if(x==1) t.loadFromFile("message1.png");
+    else if(x==2) t.loadFromFile("message2.png");
+    else t.loadFromFile("message3.png");
 
     sf::Sprite s;
     s.setTexture(t);
@@ -76,10 +79,6 @@ void Game::Render()
        // std::cout << "POS of CROSS: " << sp_cross_1.getPosition().x << " " << sp_cross_1.getPosition().y << std::endl;
 }
 
-void Game::HandleInput()
-{
-
-}
 
 int Game::Update()
 {
@@ -109,8 +108,27 @@ int Game::Update()
 
     }
 
-        displayBoard();
-        return 0;
+
+
+
+    int count=0;
+
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<3;j++)
+        {
+            if(board[i][j]==1||board[i][j]==2)
+            count++;
+        }
+    }
+    if(count==9)
+    {
+        return -1;
+    }
+
+    displayBoard();
+
+    return 0;
 }
 
 bool Game::didUserWin()
