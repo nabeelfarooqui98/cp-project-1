@@ -38,6 +38,7 @@ class Game
         sf::Texture btex;
 
         Bot *myBot; // Composition but galat jaga par (?)
+        // Because Bot is an Abstract Class
 };
 
 #endif // GAME_H

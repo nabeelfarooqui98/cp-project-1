@@ -25,7 +25,6 @@ Game::Game(int diff)
 
     //cross
     tex_cross_1.loadFromFile("X.png");
-    //sp_cross_1.setTexture(tex_cross_1);
 
     for(int i=0;i<5;i++)
     {
@@ -37,6 +36,7 @@ Game::Game(int diff)
     for(int i=0; i<5; i++)
     {
         bsprite[i].setTexture(btex);
+        bsprite[i].setOrigin(128,128);
         bsprite[i].setPosition(-200,0);
     }
 
@@ -298,48 +298,48 @@ void Game::displayBoard()
 
          if(board[0][0]==2)
         {
-            bsprite[j].setPosition(0,0);
+            bsprite[j].setPosition(100,100);
             j++;
         }
         if(board[0][1]==2)
         {
 
-            bsprite[j].setPosition(200,0);
+            bsprite[j].setPosition(300,100);
             j++;
         }
         if(board[0][2]==2)
         {
-            bsprite[j].setPosition(400,0);
+            bsprite[j].setPosition(500,100);
             j++;
         }
         if(board[1][0]==2)
         {
-            bsprite[j].setPosition(0,200);
+            bsprite[j].setPosition(100,300);
             j++;
         }
         if(board[1][1]==2)
         {
-            bsprite[j].setPosition(200,200);
+            bsprite[j].setPosition(300,300);
             j++;
         }
         if(board[1][2]==2)
         {
-            bsprite[j].setPosition(400,200);
+            bsprite[j].setPosition(500,300);
             j++;
         }
         if(board[2][0]==2)
         {
-            bsprite[j].setPosition(0,400);
+            bsprite[j].setPosition(100,500);
             j++;
         }
         if(board[2][1]==2)
         {
-            bsprite[j].setPosition(200,400);
+            bsprite[j].setPosition(300,500);
             j++;
         }
         if(board[2][2]==2)
         {
-            bsprite[j].setPosition(400,400);
+            bsprite[j].setPosition(500,500);
             j++;
         }
 
